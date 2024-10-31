@@ -1,4 +1,5 @@
-require('dotenv').config()
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 const { Sequelize } = require('sequelize')
 
 // get environment
@@ -26,5 +27,5 @@ const connectDB = async () => {
 
 module.exports = {
     sequelize,
-    connectDB
+    connectDB,
 }
