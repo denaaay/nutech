@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const middleware = require('../controllers/middleware')
 const authController = require('../controllers/auth')
 
-router.get('/', (_, res) => {
+router.get('/', middleware, (_, res) => {
     res.send('hello world')
 })
 

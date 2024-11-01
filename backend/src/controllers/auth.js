@@ -1,3 +1,5 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 const userRepo = require('../repositories/user')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
