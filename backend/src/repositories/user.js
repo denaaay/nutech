@@ -1,3 +1,4 @@
+const { where } = require('sequelize')
 const User = require('../models/User')
 
 const createUser = async (email, firstName, lastName, password) => {
@@ -15,7 +16,18 @@ const getUserByEmail = async (email) => {
     return getUser
 }
 
+const userUpdate = async (email, firstName, lastName) => {
+    await User.update({
+        first_name: firstName,
+        last_name: lastName,
+    }, {
+        where: {email}
+    })
+    return
+}
+
 module.exports = {
     createUser,
     getUserByEmail,
+    userUpdate,
 }
